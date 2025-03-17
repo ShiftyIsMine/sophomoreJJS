@@ -3,6 +3,7 @@ package kr.ac.kopo.helloooo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,12 +21,15 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setIcon(R.drawable.ic_launcher);
         Button btn1 = (Button) findViewById(R.id.btn1);
         TextView text1 = findViewById(R.id.textView);
+        EditText editText = findViewById(R.id.editName1);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast toast = Toast.makeText(getApplicationContext(), "버튼 클릭했네?", Toast.LENGTH_LONG);
                 toast.show();
-                text1.setText("shifty");
+                String name = editText.getText().toString();
+                text1.setText(name+" = shifty");
+
             }
         });
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
