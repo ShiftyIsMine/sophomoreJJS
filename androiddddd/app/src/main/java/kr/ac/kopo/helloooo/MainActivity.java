@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast toast = Toast.makeText(getApplicationContext(), "버튼 클릭했네?", Toast.LENGTH_LONG);
                 toast.show();
-                textView.setText("shifty");
+                text1.setText("shifty");
             }
         });
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
