@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FirstAndroid</string>
+    <string name="greeting1">"안녕하세요"</string>
+</resources>
