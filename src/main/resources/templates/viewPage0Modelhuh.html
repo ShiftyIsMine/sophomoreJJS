@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = http://thymeleaf.org>
+<head>
+    <meta charset="UTF-8">
+    <title>모델 맵임당</title>
+</head>
+<body>
+    <ul>
+        <li th:each="liliitem : ${list1}" th:text="${liliitem}"></li>
+    </ul>
+    <h2 th:text="${message1}"></h2>
+    <h3 th:text="${message2}"></h3>
+</body>
+</html>

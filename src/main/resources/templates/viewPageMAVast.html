@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MAV임당ㅇㅇ</title>
+</head>
+<body>
+    <h1 th:text = "${msg1}"></h1>
+    <h1 th:text = "${msg2}"></h1>
+    <h1 th:text = "${msg3}"></h1>
+    <h1 th:text = "${msg4}"></h1>
+    <ul>
+        <li th:each = "anything : ${list2}" th:text = "${anything}"></li>
+    </ul>
+</body>
+</html>
