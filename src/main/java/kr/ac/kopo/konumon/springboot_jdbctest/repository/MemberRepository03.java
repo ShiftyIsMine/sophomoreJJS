@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface MemberRepository02 extends JpaRepository<Member, Integer> {
+public interface MemberRepository03 extends JpaRepository<Member, Integer> {
     @Transactional
     @Query(value="select entity from Member entity")
     public List<Member> selectMethod();

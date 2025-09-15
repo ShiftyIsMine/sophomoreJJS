@@ -14,11 +14,11 @@ import java.util.Optional;
 public class Example02Controller {
 
     @Autowired
-    MemberRepository02 repository;
+    MemberRepository02 repository02;
 
     @GetMapping
     public String viewHomePage(Model model) {
-        Iterable<Member> memberList =  repository.findAll(); //select * from member
+        Iterable<Member> memberList =  repository02.findAll(); //select * from member
         model.addAttribute("memberList", memberList);
         return "viewPage02";
     }
@@ -33,13 +33,13 @@ public class Example02Controller {
 
     @PostMapping("/insert")
     public String insertMethod(@ModelAttribute("member") Member member) {
-        repository.save(member);
+        repository02.save(member);
         return "redirect:/exam02";
     }
 
     @GetMapping("/edit/{id}")
     public String editMethod(@PathVariable(name = "id") int id,Model model) {
-        Optional<Member> member = repository.findById(id);
+        Optional<Member> member = repository02.findById(id);
         model.addAttribute("member", member);
         return "viewPage02_edit";
     }
@@ -47,7 +47,7 @@ public class Example02Controller {
     @PostMapping("/update")
     public String updateMethod(@ModelAttribute("member") Member member) {
         
-        repository.save(member);
+        repository02.save(member);
         return "redirect:/exam02";
     }
 }
