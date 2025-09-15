@@ -4,14 +4,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import kr.ac.kopo.konumon.springboot_jdbctest.domain.Member;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 
 import java.util.List;
@@ -48,7 +42,35 @@ public class MemberRepository04 {
         query.setParameter("e_age", member.getAge());
         query.setParameter("e_email", member.getEmail());
         query.executeUpdate();
-
     }
+
+    public Member selMethod(int id) {
+        String jpql = "select entity from Member entity where id=:e_id";
+        Query query = em.createQuery(jpql);
+        query.setParameter("e_id", id);
+        Member member = (Member) query.getSingleResult();
+        return member;
+    }
+
+    public Member updateMethod(Member member) {
+        String jpql = "update Member set name=:e_name, age=:e_age,email=:e_email where id=:e_id";
+        Query query = em.createQuery(jpql);
+        query.setParameter("e_name", member.getName());
+        query.setParameter("e_age", member.getAge());
+        query.setParameter("e_email", member.getEmail());
+        query.setParameter("e_id", member.getId());
+        query.executeUpdate();
+        return member;
+    }
+
+    public Member deleteMethod(int id) {
+        String jpql = "delete from Member where id=:e_id";
+        Query query = em.createQuery(jpql);
+        query.setParameter("e_id", id);
+        Member member = (Member) query.getResultList();
+        return member;
+    }
+
+
 
 }
